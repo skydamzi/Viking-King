@@ -26,6 +26,7 @@ public class GM : MonoBehaviour
     public Slider slider_bg;
     public Slider slider_effect;
     public AudioMixer mixer;
+    public GameObject SonGay;
 
     void Update()
     {
