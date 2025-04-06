@@ -9,11 +9,19 @@ public class Player : MonoBehaviour
     public int jumpCount;
     public AudioSource audioSource;
     public Animator animator;
+    public GameObject prefab_HP;
+    public GameObject canvas;
+    public RectTransform HP;
+
+    private void Start()
+    {
+        HP = Instantiate(prefab_HP,canvas.transform).GetComponent<RectTransform>();
+    }
 
     private void Update()
     {
         Movement();
-
+        moveHPbar();
         if (Input.GetButtonUp("Horizontal"))
         {
             animator.SetBool("isRuning", false);
@@ -33,6 +41,11 @@ public class Player : MonoBehaviour
 
     }
 
+    void moveHPbar()
+    {
+        Vector3 hpbarPos = Camera.main.WorldToScreenPoint(new Vector3(transform.position.x, transform.position.y + 0.55f, 0));
+        HP.position = hpbarPos;
+    }
     void Movement()
     {
         /* 방법1.Axis활용

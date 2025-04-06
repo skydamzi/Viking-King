@@ -27,6 +27,7 @@ public class GM : MonoBehaviour
     public Slider slider_effect;
     public AudioMixer mixer;
 
+
     void Update()
     {
         display.text = eProgress.ToString();    
@@ -44,7 +45,6 @@ public class GM : MonoBehaviour
     {
         canSound.SetActive(false);
     }
-
     public void Controll_bg()
     {
         audio_camera.volume = slider_bg.value;
